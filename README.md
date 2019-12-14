@@ -16,7 +16,13 @@ Before building the project be sure you have installed [CocoaPods](https://cocoa
 1. Launch the application on Simulator or device. iPad is preffered.
 2. Log in to the app with your ArcGIS account.
 3. Kill the app.
-4. Launch and kill the app for several times in order to get it crashed. It happens without any additional inputs form the user. List of Feature layers just doesn't load correctly. Screenshots:
+4. Launch and kill the app for several times in order to get it crashed. It happens without any additional inputs form the user. List of Feature layers just doesn't load correctly.
+
+## Screenshots while crashing:
 
 ![Crash UI](./Images/Crash_UI.png)
 ![Crash UI](./Images/Crash_IDE.png)
+
+## Screenshot of the app without crash:
+
+![Crash UI](./Images/NoCrash_UI.png)

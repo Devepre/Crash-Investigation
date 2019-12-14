@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D43D244D1292F9C57386786 /* Pods_Crash_Investigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366D7F127B4EB031071CCD78 /* Pods_Crash_Investigation.framework */; };
 		4724F49B23A53241007C5F43 /* LayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4724F49A23A53241007C5F43 /* LayerContainer.swift */; };
+		4724F49D23A53CF9007C5F43 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4724F49C23A53CF9007C5F43 /* README.md */; };
 		47437DE923A5271E008A0FD9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47437DE823A5271E008A0FD9 /* MapView.swift */; };
 		474CD35D23A4EDB20071118D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD35C23A4EDB20071118D /* AppDelegate.swift */; };
 		474CD35F23A4EDB20071118D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD35E23A4EDB20071118D /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		366D7F127B4EB031071CCD78 /* Pods_Crash_Investigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crash_Investigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D485145C6F616A7DC3805C1 /* Pods-Crash Investigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crash Investigation.release.xcconfig"; path = "Target Support Files/Pods-Crash Investigation/Pods-Crash Investigation.release.xcconfig"; sourceTree = "<group>"; };
 		4724F49A23A53241007C5F43 /* LayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerContainer.swift; sourceTree = "<group>"; };
+		4724F49C23A53CF9007C5F43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		47437DE823A5271E008A0FD9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		474CD35923A4EDB20071118D /* Crash Investigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crash Investigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		474CD35C23A4EDB20071118D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		474CD35023A4EDB20071118D = {
 			isa = PBXGroup;
 			children = (
+				4724F49C23A53CF9007C5F43 /* README.md */,
 				474CD35B23A4EDB20071118D /* Crash Investigation */,
 				474CD35A23A4EDB20071118D /* Products */,
 				8C0E0C19D1D9624D1C8EA64A /* Pods */,
@@ -200,6 +203,7 @@
 			files = (
 				474CD36923A4EDB80071118D /* LaunchScreen.storyboard in Resources */,
 				474CD36623A4EDB80071118D /* Preview Assets.xcassets in Resources */,
+				4724F49D23A53CF9007C5F43 /* README.md in Resources */,
 				474CD36323A4EDB80071118D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
