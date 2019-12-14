@@ -7,6 +7,7 @@ Before building the project be sure you have installed [CocoaPods](https://cocoa
 1. `cd` into into the cloned repository's directory
 2. `pod repo update`
 3. `pod install`
+4. `xed .`
 
 ## Requirements
 * [Xcode 11 and Swift 5](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
