@@ -8,21 +8,27 @@
 
 import UIKit
 import SwiftUI
+import ArcGIS
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    let clientID = "xHx4Nj7q1g19Wh6P"
+    let oAuthRedirectURLString = "iOSSamples://auth"
+    let itemID = "acc027394bc84c2fb04d1ed317aac674"
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
-
-        // Use a UIHostingController as window root view controller.
+        
+        let portal = AGSPortal.arcGISOnline(withLoginRequired: true)
+        let portalWrapper = PortalWrapper(portal: portal)
+        
+        setupOAuth(for: portalWrapper, with: clientID, and: oAuthRedirectURLString)
+        
+        // Inject portal into SwitUI view hierarchy
+        let contentView = ContentView(itemID: itemID)
+            .environmentObject(portalWrapper)
+        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
@@ -30,35 +36,72 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
     }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
-
+    
 }
 
+// MARK: - AGSAuthenticationManagerDelegate
+
+extension SceneDelegate: AGSAuthenticationManagerDelegate {
+    
+    func authenticationManager(_ authenticationManager: AGSAuthenticationManager,
+                               didReceive challenge: AGSAuthenticationChallenge) {
+        challenge.continueWithDefaultHandling()
+    }
+}
+
+// MARK: - oAuth configuration
+
+extension SceneDelegate {
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        if let url = URLContexts.first?.url {
+            if url.absoluteString.range(of: "auth", options: [], range: nil, locale: nil) != nil {
+                
+                let options = convertFirstOf(URLContexts)
+                AGSApplicationDelegate.shared().application(
+                    UIApplication.shared,
+                    open: url,
+                    options: options
+                )
+            }
+        }
+    }
+    
+    private func setupOAuth(for portalWrapper: PortalWrapper, with clientID: String, and oAuthRedirectURLString: String) {
+        // Setting OAuth info
+        let oAuthConfiguration = AGSOAuthConfiguration(
+            portalURL: portalWrapper.portal.url,
+            clientID: clientID,
+            redirectURL: oAuthRedirectURLString
+        )
+        
+        AGSAuthenticationManager.shared().delegate = self
+        AGSAuthenticationManager.shared().oAuthConfigurations.add(oAuthConfiguration)
+        AGSAuthenticationManager.shared().credentialCache
+            .enableAutoSyncToKeychain(
+                withIdentifier: "com.development.Crash-Investigation",
+                accessGroup: nil,
+                acrossDevices: false
+        )
+    }
+    
+    /// Converts URL to open info for the UIKit representation consuming
+    private func convertFirstOf(_ URLContexts: Set<UIOpenURLContext>) -> [UIApplication.OpenURLOptionsKey: Any] {
+        
+        var options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+        
+        if let inputOptions = URLContexts.first?.options {
+            options[.openInPlace] = inputOptions.openInPlace
+            
+            if let sourceApplication = inputOptions.sourceApplication {
+                options[.sourceApplication] = sourceApplication
+            }
+            if let annotation = inputOptions.annotation {
+                options[.annotation] = annotation // Type casting undefined
+            }
+        }
+        
+        return options
+    }
+}

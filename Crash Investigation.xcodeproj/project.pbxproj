@@ -3,23 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3D43D244D1292F9C57386786 /* Pods_Crash_Investigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366D7F127B4EB031071CCD78 /* Pods_Crash_Investigation.framework */; };
+		4724F49B23A53241007C5F43 /* LayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4724F49A23A53241007C5F43 /* LayerContainer.swift */; };
+		47437DE923A5271E008A0FD9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47437DE823A5271E008A0FD9 /* MapView.swift */; };
 		474CD35D23A4EDB20071118D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD35C23A4EDB20071118D /* AppDelegate.swift */; };
 		474CD35F23A4EDB20071118D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD35E23A4EDB20071118D /* SceneDelegate.swift */; };
 		474CD36123A4EDB20071118D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD36023A4EDB20071118D /* ContentView.swift */; };
 		474CD36323A4EDB80071118D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474CD36223A4EDB80071118D /* Assets.xcassets */; };
 		474CD36623A4EDB80071118D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474CD36523A4EDB80071118D /* Preview Assets.xcassets */; };
 		474CD36923A4EDB80071118D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474CD36723A4EDB80071118D /* LaunchScreen.storyboard */; };
+		474CD37223A4F14A0071118D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD37123A4F14A0071118D /* MapViewController.swift */; };
+		474CD37623A4F33B0071118D /* FeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD37523A4F33B0071118D /* FeatureListView.swift */; };
+		474CD37A23A4F5120071118D /* PortalWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD37923A4F5120071118D /* PortalWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DC9235C0CCCFB90112C6EED /* Pods-Crash Investigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crash Investigation.debug.xcconfig"; path = "Target Support Files/Pods-Crash Investigation/Pods-Crash Investigation.debug.xcconfig"; sourceTree = "<group>"; };
 		366D7F127B4EB031071CCD78 /* Pods_Crash_Investigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crash_Investigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D485145C6F616A7DC3805C1 /* Pods-Crash Investigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crash Investigation.release.xcconfig"; path = "Target Support Files/Pods-Crash Investigation/Pods-Crash Investigation.release.xcconfig"; sourceTree = "<group>"; };
+		4724F49A23A53241007C5F43 /* LayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerContainer.swift; sourceTree = "<group>"; };
+		47437DE823A5271E008A0FD9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		474CD35923A4EDB20071118D /* Crash Investigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crash Investigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		474CD35C23A4EDB20071118D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		474CD35E23A4EDB20071118D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +35,9 @@
 		474CD36523A4EDB80071118D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		474CD36823A4EDB80071118D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		474CD36A23A4EDB80071118D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		474CD37123A4F14A0071118D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		474CD37523A4F33B0071118D /* FeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListView.swift; sourceTree = "<group>"; };
+		474CD37923A4F5120071118D /* PortalWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,23 @@
 				366D7F127B4EB031071CCD78 /* Pods_Crash_Investigation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4724F49923A53233007C5F43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4724F49A23A53241007C5F43 /* LayerContainer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		47437DEA23A52853008A0FD9 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				47437DE823A5271E008A0FD9 /* MapView.swift */,
+				474CD37123A4F14A0071118D /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		474CD35023A4EDB20071118D = {
@@ -72,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				474CD35C23A4EDB20071118D /* AppDelegate.swift */,
+				474CD37923A4F5120071118D /* PortalWrapper.swift */,
 				474CD35E23A4EDB20071118D /* SceneDelegate.swift */,
-				474CD36023A4EDB20071118D /* ContentView.swift */,
+				4724F49923A53233007C5F43 /* Model */,
+				474CD37023A4F1220071118D /* UI */,
 				474CD36223A4EDB80071118D /* Assets.xcassets */,
 				474CD36723A4EDB80071118D /* LaunchScreen.storyboard */,
 				474CD36A23A4EDB80071118D /* Info.plist */,
@@ -90,13 +119,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		474CD37023A4F1220071118D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				474CD36023A4EDB20071118D /* ContentView.swift */,
+				47437DEA23A52853008A0FD9 /* Map */,
+				474CD37523A4F33B0071118D /* FeatureListView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		8C0E0C19D1D9624D1C8EA64A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1DC9235C0CCCFB90112C6EED /* Pods-Crash Investigation.debug.xcconfig */,
 				3D485145C6F616A7DC3805C1 /* Pods-Crash Investigation.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -215,9 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47437DE923A5271E008A0FD9 /* MapView.swift in Sources */,
+				474CD37A23A4F5120071118D /* PortalWrapper.swift in Sources */,
 				474CD35D23A4EDB20071118D /* AppDelegate.swift in Sources */,
 				474CD35F23A4EDB20071118D /* SceneDelegate.swift in Sources */,
+				474CD37623A4F33B0071118D /* FeatureListView.swift in Sources */,
+				4724F49B23A53241007C5F43 /* LayerContainer.swift in Sources */,
 				474CD36123A4EDB20071118D /* ContentView.swift in Sources */,
+				474CD37223A4F14A0071118D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

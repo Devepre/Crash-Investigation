@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let itemID: String
+    
     var body: some View {
-        Text("Hello World")
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        VStack {
+            MapView(portalItemID: itemID)
+            FeatureListView(portalItemID: itemID)
+        }
     }
 }
